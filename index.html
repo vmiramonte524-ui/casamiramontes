@@ -1,125 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casa Vianey - Tropical Sanctuary in Uvita, Costa Rica</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Miramontes del Mar - Tropical Sanctuary in Uvita, Costa Rica</title>
 
-  <!-- Language Detection Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const translations = {
-        en: {
-          welcome: "Welcome",
-          description: "This is the English version of the page."
-        },
-        es: {
-          welcome: "Bienvenido",
-          description: "Esta es la versión en español de la página."
+    <!-- Language Detection Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const translations = {
+          en: {
+            welcome: "Welcome",
+            description: "This is the English version of the page."
+          },
+          es: {
+            welcome: "Bienvenido",
+            description: "Esta es la versión en español de la página."
+          }
+        };
+
+        const userLang = navigator.language.startsWith("es") ? "es" : "en";
+        document.documentElement.setAttribute("lang", userLang);
+        if (document.getElementById("welcome")) {
+          document.getElementById("welcome").textContent = translations[userLang].welcome;
         }
-      };
+        if (document.getElementById("description")) {
+          document.getElementById("description").textContent = translations[userLang].description;
+        }
+      });
+    </script>
 
-      const userLang = navigator.language.startsWith("es") ? "es" : "en";
-      document.documentElement.setAttribute("lang", userLang);
-      if (document.getElementById("welcome")) {
-        document.getElementById("welcome").textContent = translations[userLang].welcome;
-      }
-      if (document.getElementById("description")) {
-        document.getElementById("description").textContent = translations[userLang].description;
-      }
-    });
-  </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    /* Root Variables */
-    :root {
-      --primary: #20b2aa;
-      --secondary: #e9c46a;
-      --accent: #163b95;
-      --dark: #264653;
-      --light: #f8f9fa;
-      --text: #333333;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background-color: var(--light);
-    }
-
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('your-header-image.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
-
-    .logo { font-size: 1.8rem; font-weight: 700; color: white; }
-    .logo span { color: var(--secondary); }
-
-    .nav-links { display: flex; list-style: none; }
-    .nav-links li { margin-left: 30px; }
-    .nav-links a { color: white; font-weight: 500; }
-    .nav-links a:hover { color: var(--secondary); }
-
-    /* Hamburger Menu */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .nav-links.active {
-      display: flex;
-      flex-direction: column;
-      background: rgba(0,0,0,0.9);
-      position: absolute;
-      top: 60px;
-      right: 15px;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-    }
-
-    /* Testimonials Fix */
-    .testimonial-card:before {
-      content: "“";
-      font-size: 5rem;
-      color: var(--secondary);
-      position: absolute;
-      top: -10px;
-      left: 10px;
-      opacity: 0.3;
-      font-family: Georgia, serif;
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #20b2aa;
+            --secondary: #e9c46a;
+            --accent: #163b95;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        p { margin-bottom: 1.5rem; }
+        a { text-decoration: none; color: var(--primary); transition: all 0.3s ease; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer
