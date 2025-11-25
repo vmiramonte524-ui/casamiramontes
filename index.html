@@ -107,6 +107,55 @@
             background-color: white;
             color: var(--primary);
         }
+        /* Back to Top Button */
+.top-btn {
+  position: fixed;
+  bottom: 80px;       /* sits above Book Now button */
+  right: 20px;
+  background-color: var(--secondary);
+  color: var(--dark);
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 998;
+  opacity: 0;              /* hidden by default */
+  pointer-events: none;
+}
+
+.top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-btn:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .top-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    bottom: 70px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    bottom: 65px;
+    right: 10px;
+  }
+}
+
 /* Floating Book Now Button */
 .floating-btn {
   position: fixed;
@@ -986,5 +1035,29 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
     <a href="https://www.airbnb.com/rooms/1419890481185162448?guests=1&adults=1&s=67&unique_share_id=d33e1bcc-a8cd-4434-8377-08f3bfd4245a" class="floating-btn">Book Now!</a>
+    <a href="#" class="top-btn" id="top-btn" aria-label="Back to top">
+      ↑ Top
+</a>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const topBtn = document.getElementById("top-btn");
+
+  // Show button after scrolling down 300px
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 300) {
+      topBtn.classList.add("show");
+    } else {
+      topBtn.classList.remove("show");
+    }
+  });
+
+  // Smooth scroll to top
+  topBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+</script>
+
 </body>
 </html>
