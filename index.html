@@ -107,12 +107,12 @@
             background-color: white;
             color: var(--primary);
         }
-
-        .floating-btn {
+/* Floating Book Now Button */
+.floating-btn {
   position: fixed;
-  bottom: 20px;       /* distance from bottom */
-  right: 20px;        /* distance from right */
-  background-color: var(--accent); /* matches your theme */
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--accent);
   color: white;
   padding: 15px 25px;
   border-radius: 30px;
@@ -121,12 +121,31 @@
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
-  z-index: 999;       /* ensures it stays on top */
+  z-index: 999;
 }
 
 .floating-btn:hover {
   background-color: var(--primary);
   transform: translateY(-3px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .floating-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-btn {
+    padding: 10px 18px;
+    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
         /* Header Styles */
@@ -944,6 +963,6 @@
             });
         });
     </script>
-    <a href="#booking" class="floating-btn">Book Now</a>
+    <a href="https://www.airbnb.com/rooms/1419890481185162448?guests=1&adults=1&s=67&unique_share_id=d33e1bcc-a8cd-4434-8377-08f3bfd4245a" class="floating-btn">Book Now!</a>
 </body>
 </html>
