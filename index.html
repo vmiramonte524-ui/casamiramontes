@@ -3,55 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Miramontes del Mar - Tropical Sanctuary in Uvita, Costa Rica</title>
-    <button id="lang-toggle">Español</button>
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const translations = {
-    en: {
-      welcome: "Welcome",
-      description: "This is the English version of the page."
-    },
-    es: {
-      welcome: "Bienvenido",
-      description: "Esta es la versión en español de la página."
-    }
-  };
-
-  // Load saved preference or detect browser language
-  let userLang = localStorage.getItem("preferredLang") || 
-                 (navigator.language.startsWith("es") ? "es" : "en");
-
-  function applyTranslations(lang) {
-    document.documentElement.setAttribute("lang", lang);
-
-    // Only update elements inside <body>, not <head>
-    Object.keys(translations[lang]).forEach(key => {
-      const el = document.querySelector(`body #${key}`);
-      if (el) el.textContent = translations[lang][key];
-    });
-
-    // Update toggle button label
-    const toggleBtn = document.getElementById("lang-toggle");
-    if (toggleBtn) {
-      toggleBtn.textContent = lang === "en" ? "Español" : "English";
-    }
-  }
-
-  // Initial load
-  applyTranslations(userLang);
-
-  // Toggle button click
-  const toggleBtn = document.getElementById("lang-toggle");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", function() {
-      userLang = userLang === "en" ? "es" : "en";
-      localStorage.setItem("preferredLang", userLang);
-      applyTranslations(userLang);
-    });
-  }
-});
-</script>
+    <title>Casa Miramontes del Mar - Tropical Sanctuary in Uvita, Costa Rica</title>     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
