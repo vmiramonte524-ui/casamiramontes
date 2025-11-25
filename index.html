@@ -107,7 +107,28 @@
             background-color: white;
             color: var(--primary);
         }
-        
+
+        .floating-btn {
+  position: fixed;
+  bottom: 20px;       /* distance from bottom */
+  right: 20px;        /* distance from right */
+  background-color: var(--accent); /* matches your theme */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 999;       /* ensures it stays on top */
+}
+
+.floating-btn:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
         /* Header Styles */
         header {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://scontent-mia3-2.xx.fbcdn.net/v/t39.30808-6/589309867_122099515263137014_3383314289953013545_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kNgzUdiJgNcQ7kNvwHdRPAm&_nc_oc=Adm9q-i8cUMfR4s8WCm_rGvga20eM069x-AoBpuOnncH4bQ8zoJ7bSzQA6V2qOarpT0&_nc_zt=23&_nc_ht=scontent-mia3-2.xx&_nc_gid=M-4txtGX9_p1nUj8bGWGtA&oh=00_AfgOEUABHs91ZwFfJ_r7TRlawBZDjxZiBKGc50lfqQM_6w&oe=692BEE3A&auto=format&fit=crop&w=1350&q=80');
@@ -923,5 +944,6 @@
             });
         });
     </script>
+    <a href="#booking" class="floating-btn">Book Now</a>
 </body>
 </html>
