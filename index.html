@@ -137,24 +137,6 @@
   transform: translateY(-3px);
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .top-btn {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-    bottom: 70px;
-    right: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .top-btn {
-    padding: 8px 14px;
-    font-size: 0.8rem;
-    bottom: 65px;
-    right: 10px;
-  }
-}
 
 /* Floating Book Now Button */
 .floating-btn {
@@ -171,20 +153,13 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   z-index: 999;
-  animation: bounceIn 1s ease, pulse 1.5s infinite 2s; 
-  /* 👆 bounce once, then pulse every 1.5s starting after 2s */
+  animation: bounceIn 1s ease; /* keep bounce if you like */
+  pointer-events: auto;        /* 👈 ensures it's clickable instantly */
 }
 
 .floating-btn:hover {
   background-color: var(--primary);
   transform: translateY(-3px);
-}
-
-/* Hidden state for scroll behavior */
-.floating-btn.hidden {
-  opacity: 0;
-  transform: translateY(100px);
-  pointer-events: none;
 }
 
 /* Bounce animation */
@@ -202,21 +177,32 @@
   100% { transform: scale(1); }
 }
 /* Responsive tweaks */
+/* Adjust floating buttons on mobile so they don't overlap */
 @media (max-width: 768px) {
   .floating-btn {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-    bottom: 70px;
+    bottom: 20px;   /* stays at bottom right */
+    right: 15px;
+  }
+
+  .top-btn {
+    bottom: 80px;   /* moves higher so it's above Book Now */
     right: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .floating-btn {
+    bottom: 15px;
+    right: 10px;
+    padding: 10px 18px;
+    font-size: 0.8rem;
+  }
+
+  .top-btn {
+    bottom: 70px;   /* keeps spacing above Book Now */
+    right: 10px;
     padding: 8px 14px;
     font-size: 0.8rem;
-    bottom: 65px;
-    right: 10px;
   }
 }
         /* Header Styles */
@@ -1071,7 +1057,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
-    <a href="https://www.airbnb.com/rooms/1419890481185162448?guests=1&adults=1&s=67&unique_share_id=d33e1bcc-a8cd-4434-8377-08f3bfd4245a" class="floating-btn">Book Now!</a>
+    <a href="#booking" class="floating-btn">Book Now!</a>
     <a href="#" class="top-btn" id="top-btn" aria-label="Back to top">
       ↑ Top
 </a>
