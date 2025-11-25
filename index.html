@@ -122,8 +122,8 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   z-index: 999;
-  animation: bounceIn 1s ease, pulse 2s infinite 3s; 
-  /* 👆 bounce once, then pulse every 2s starting after 3s */
+  animation: bounceIn 1s ease, pulse 1.5s infinite 2s; 
+  /* 👆 bounce once, then pulse every 1.5s starting after 2s */
 }
 
 .floating-btn:hover {
@@ -133,7 +133,7 @@
 
 /* Hidden state for scroll behavior */
 .floating-btn.hidden {
-  opacity: 0;
+  opacity: 50;
   transform: translateY(100px);
   pointer-events: none;
 }
@@ -151,25 +151,6 @@
   0%   { transform: scale(1); }
   50%  { transform: scale(1.05); }
   100% { transform: scale(1); }
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .floating-btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-    bottom: 15px;
-    right: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-btn {
-    padding: 10px 18px;
-    font-size: 0.8rem;
-    bottom: 10px;
-    right: 10px;
-  }
 }
 
         /* Header Styles */
