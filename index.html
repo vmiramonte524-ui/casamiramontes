@@ -602,6 +602,16 @@
                 <button class="mobile-menu-btn" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
+                <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuBtn = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", function() {
+      navLinks.classList.toggle("active");
+    });
+  });
+</script>
             </nav>
             
             <div class="hero-content">
