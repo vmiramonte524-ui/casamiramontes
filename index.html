@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Vianey - Tropical Sanctuary in Uvita, Costa Rica</title>
+    <meta charset="UTF-8">
+  <title>Dynamic Language Example</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Define translations
+      const translations = {
+        en: {
+          welcome: "Welcome",
+          description: "This is the English version of the page."
+        },
+        es: {
+          welcome: "Bienvenido",
+          description: "Esta es la versión en español de la página."
+        }
+      };
+
+      // Detect user language
+      const userLang = navigator.language.startsWith("es") ? "es" : "en";
+
+      // Apply translations
+      document.documentElement.setAttribute("lang", userLang);
+      document.getElementById("welcome").textContent = translations[userLang].welcome;
+      document.getElementById("description").textContent = translations[userLang].description;
+    });
+  </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
