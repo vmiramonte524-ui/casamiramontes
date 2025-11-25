@@ -24,27 +24,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function applyTranslations(lang) {
     document.documentElement.setAttribute("lang", lang);
+
+    // Only update elements inside <body>, not <head>
     Object.keys(translations[lang]).forEach(key => {
-      const el = document.getElementById(key);
+      const el = document.querySelector(`body #${key}`);
       if (el) el.textContent = translations[lang][key];
     });
-    // Update button label to show the other option
-    document.getElementById("lang-toggle").textContent = 
-      lang === "en" ? "Español" : "English";
+
+    // Update toggle button label
+    const toggleBtn = document.getElementById("lang-toggle");
+    if (toggleBtn) {
+      toggleBtn.textContent = lang === "en" ? "Español" : "English";
+    }
   }
 
   // Initial load
   applyTranslations(userLang);
 
   // Toggle button click
-  document.getElementById("lang-toggle").addEventListener("click", function() {
-    userLang = userLang === "en" ? "es" : "en";
-    localStorage.setItem("preferredLang", userLang);
-    applyTranslations(userLang);
-  });
+  const toggleBtn = document.getElementById("lang-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function() {
+      userLang = userLang === "en" ? "es" : "en";
+      localStorage.setItem("preferredLang", userLang);
+      applyTranslations(userLang);
+    });
+  }
 });
 </script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
