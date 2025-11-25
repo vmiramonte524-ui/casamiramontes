@@ -4,30 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Miramontes del Mar - Tropical Sanctuary in Uvita, Costa Rica</title>
-    <!-- Language Detection Script -->
+    <button id="lang-toggle">Español</button>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const translations = {
-          en: {
-            welcome: "Casa Miramontes del Mar",
-            description: "Tropical Sanctuary in Uvita, Costa Rica."
-          },
-          es: {
-            welcome: "Bienvenido",
-            description: "Esta es la versión en español de la página."
-          }
-        };
+document.addEventListener("DOMContentLoaded", function() {
+  const translations = {
+    en: {
+      welcome: "Welcome",
+      description: "This is the English version of the page."
+    },
+    es: {
+      welcome: "Bienvenido",
+      description: "Esta es la versión en español de la página."
+    }
+  };
 
-        const userLang = navigator.language.startsWith("es") ? "es" : "en";
-        document.documentElement.setAttribute("lang", userLang);
-        if (document.getElementById("welcome")) {
-          document.getElementById("welcome").textContent = translations[userLang].welcome;
-        }
-        if (document.getElementById("description")) {
-          document.getElementById("description").textContent = translations[userLang].description;
-        }
-      });
-    </script>
+  // Load saved preference or detect browser language
+  let userLang = localStorage.getItem("preferredLang") || 
+                 (navigator.language.startsWith("es") ? "es" : "en");
+
+  function applyTranslations(lang) {
+    document.documentElement.setAttribute("lang", lang);
+    Object.keys(translations[lang]).forEach(key => {
+      const el = document.getElementById(key);
+      if (el) el.textContent = translations[lang][key];
+    });
+    // Update button label to show the other option
+    document.getElementById("lang-toggle").textContent = 
+      lang === "en" ? "Español" : "English";
+  }
+
+  // Initial load
+  applyTranslations(userLang);
+
+  // Toggle button click
+  document.getElementById("lang-toggle").addEventListener("click", function() {
+    userLang = userLang === "en" ? "es" : "en";
+    localStorage.setItem("preferredLang", userLang);
+    applyTranslations(userLang);
+  });
+});
+</script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
